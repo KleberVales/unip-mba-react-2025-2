@@ -183,7 +183,7 @@
             dias.push(null)
         }
         for (let dia = 1; dia <= diasNoMes; dia++)
-            dia.push(dia)
+            dias.push(dia)
 
         return(
             <Card title={`${meses[mesAtual]} ${anoAtual}`}>
@@ -236,6 +236,7 @@
     }
 
     ReactDOM.createRoot(document.getElementById('root')).render(<App/>)
+    
 </script>
 </body>
 </html>
