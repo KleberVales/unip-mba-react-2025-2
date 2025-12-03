@@ -1,76 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agenda React - Conceitos de props e componentes</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src ="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src ="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <!-- Design Tokens com tailwind -->
-
-    <style type="text/tailwindcss">
-           @layer base {
-                :root{
-                    --color-primary: #3b82f6;
-                    --color-secondary: #8b5cf6;
-                    --color-success: #10b981;
-                    --color-warning: #f59e0b;
-                    --color-dark: #1f2937;
-                    --color-light: #ff4f66;
-                }
-
-               body{
-                   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-                   @apply bg-gray-50 text-gray-800
-               }
-
-               h1{ @apply text-4xl font-bold;}
-               h2{ @apply text-3xl font-semibold;}
-               h3{@apply text-xl font-semibold;}
-               h4{@apply font-medium;}
-               p{@apply text-base;}
-               small {@apply text-sm;}
-           }
-
-           @layer components{
-               /* Bordas arredondadas padrozadas */
-
-               .rounded-default {@apply rounded-lg}
-               .rounded-card {@apply rounded-xl}
-               .rounded-button {@apply rounded-md}
-
-               /* Tamanhos de fonte */
-
-               .text-xs-custom {@apply text-xs}
-               .text-xs-custom {@apply text-sm}
-               .text-xs-custom {@apply text-base}
-               .text-xs-custom {@apply text-lg}
-               .text-xs-custom {@apply text-xl}
-           }
-    </style>
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
 <div id="root"></div>
-
+<script src="https://cdn.tailwindcss.com"></script>
+<script src = "https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src = "https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
 <script type="text/babel">
 
-    function Text({children, variant = "body", color="gray-800", className=""}){
+    function App() {
+        return (
+            <div className="text-center mt-10">
+                <h1 className="text-4xl font-bold text-blue-500">Hello, Tailwind CSS with React!</h1>
+            </div>
 
-    }
-    function App(){
-        return(
-            <>
-                <text>"data"</text>
-            </>
         );
     }
+    ReactDOM.createRoot(document.getElementById('root')).render(
+        <App />
+    );
 </script>
+
 </body>
 </html>

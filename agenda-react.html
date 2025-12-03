@@ -1,17 +1,241 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda React - Conceitos de Props e Componentes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src = "https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src = "https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone/babel.min.js"> </script>
+
+    <!-- Design Tokens com tailwind -->
+
+    <style type="text/tailwindcss">
+        @layer base {
+            /*Configuração das cores*/
+            :root{
+                --color-primary: #3b82f6;
+                --color-secondary: #8b5cf6;
+                --color-success: #10b981;
+                --color-warning: #f59e0b;
+                --color-dark: #1f2937;
+                --color-light: #f3f4f6;
+            }
+
+            body{
+                font-family: 'Inter', system-ui, -apple-system,  sans-serif;
+                @apply bg-gray-50 text-gray-800
+            }
+
+            h1{ @apply text-4xl font-bold;}
+            h2{@apply text-3xl font-semibold;}
+            h3{@apply text-2xl font-semibold;}
+            h4{@apply text-xl font-medium;}
+            p{@apply text-base;}
+            small {@apply text-sm;}
+        }
+
+        @layer components{
+            /*Bordas arredondadas padronizadas*/
+            .rounded-default {@apply rounded-lg}
+            .rounded-card {@apply rounded-xl}
+            .rounded-button {@apply rounded-md}
+
+            /*Tamanhos de fonte*/
+
+            .text-xs-custom {@apply text-xs}
+            .text-sm-custom {@apply text-sm}
+            .text-base-custom {@apply text-base}
+            .text-lg-custom {@apply text-lg}
+            .text-xl-custom {@apply text-xl}
+
+            /* Alto Contraste para Acessibilidade*/
+
+            .high-contrast {@apply bg-gray-900 text-white}
+            .high-contrast-border {@apply border-2 border-gray-700}
+
+        }
+    </style>
 </head>
+
 <body>
+<div id="root"></div>
+
 <script type="text/babel">
-    function Button({
-        children,
 
-                    })
+    function Texto({children, variant = "body", color = "gray-800", className=""}){
+        const variants = {
+            h1: "text-4xl font-bold",
+            h2: "text-3xl font-semibold",
+            h3: "text-2xl font-semibold",
+            h4:"text-xl font-medium",
+            body: "text-base",
+            small: "text-sm",
+            caption: "text-xs"
+        }
+
+        const Tag = variant.startsWith('h')? variant: 'p';
+        const classes = `${variants[variant]} text-${color} ${className}`
+        return <Tag className={classes}>{children}</Tag>;
+    }
+
+
+    function Button(
+        {children,
+            variant = "primary",
+            size = "md",
+            onClick,
+            disable = false,
+            className = ""
+        }){
+
+        const variants = {
+            primary: "bg-blue-500 hover:bg-blue-600 text-white",
+            secondary: "bg-purple-500 hover:bg-purple-600 text-white",
+            success: "bg-green-500 hover:bg-green-600 text-white",
+            danger: "bg-red-500 hover:bg-red-600 text-white",
+            warning: "bg-yellow-500 hover:bg-yellow-600 text-white",
+            outline: "bg-transparent border-2 border-blue-500 text-blue-500 hover:bg-blue-50"
+
+        }
+
+        const sizes = {
+            sm: "px-3 py-1.5 text-sm",
+            md: "px-4 py-2 text-base",
+            lg: "px-6 py-3 text-lg"
+        }
+
+        const classes = ` ${variants[variant]}
+        ${sizes[size]}
+        rounded-button
+        font-medium
+        transition-all
+        duration-200
+        shadow-soft
+        disable:opacity-50
+        disable:cursor-not-allowed
+        ${className}`
+
+        return(
+            <button
+                className={classes}
+                onClick={onClick}
+                disable={disable}
+            >
+                {children}
+            </button>
+        )
+
+    }
+
+    function Card({
+                      title,
+                      children,
+                      footer,
+                      className = "",
+                      variant = "default"
+                  }){
+        const variants = {
+            default: "bg-white border border-gray-200",
+            primary: "bg-blue:50 border border-blue-200",
+            success: "bg-green border border-green-200",
+            warning: "bg-yellow border border-yellow-200"
+
+        }
+
+        return(
+            <div className={`$variants[variant]} rounded-card shadow-card p-6 ${className}`}>
+                {title && (
+                    <div className="mb-4 pb-4 border-b border-gray-200">
+                        <Texto variant="h3">{title}</Texto>
+                    </div>
+                )}
+                <div className="space-y-4">
+                    {children}
+                </div>
+
+                {footer && (
+                    <div className="mt-4 pt-4 border-t border-gray-200">
+                        {footer}
+                    </div>
+                )}
+
+
+            </div>
+        )
+    }
+    function Calendario({diaSelecionado}){
+        const hoje =  new Date();
+        const mesAtual = hoje.getMonth();
+        const anoAtual = hoje.getFullYear();
+        const diaHoje = hoje.getDate();
+
+        const diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
+        const primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
+
+        const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto",
+            "Setembro", "Outubro", "Novembro", "Dezembro"]
+        const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"]
+
+        const dias = []
+        for(let i; i < primeiroDia; i++){
+            dias.push(null)
+        }
+        for (let dia = 1; dia <= diasNoMes; dia++)
+            dia.push(dia)
+
+        return(
+            <Card title={`${meses[mesAtual]} ${anoAtual}`}>
+                <div className="grid grid-cols-7 gap-2 mb-2">
+                    {diasSemana.map(dia => (
+                        <div key={dia} className="text-center font-semibold text-gray-600 text-sm">
+                            {dia}
+                        </div>
+                    ))}
+                </div>
+
+                <div className="grid grid-cols-7 gap-2">
+                    {dias.map((dia, index) => (
+                        <div
+                            key={index}
+                            className={`
+                    h-10 rounded-button text-sm font-medium
+                    flex items-center justify-center
+                    ${dia === diaSelecionado
+                                ? 'bg-blue-500 text-white shadow-md'
+                                : dia === diaHoje
+                                    ? 'bg-blue-100 text-blue-700 border-2 border-blue-500'
+                                    : 'border-gray-100 text-gray-700'
+                            }
+                    `}
+                        >
+                            {dia}
+                        </div>
+                    ))}
+                </div>
+            </Card>
+
+        )
+
+
+
+    }
+
+
+    function App(){
+        const hoje = new Date();
+        return(
+            <div>
+
+                <div className = "lg:col-span-1">
+                    <Calendario diaSelecionado={hoje.getDate()}/>
+                </div>
+            </div>
+        )
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>)
 </script>
-
 </body>
 </html>
