@@ -20,5 +20,29 @@
 
 ## 🛠️ Instalação e execução
 
+```bash
+# Clone este repositório
+git clone https://github.com/KleberVales/unip-mba-react-2025-2.git
+```
+
+# Acesse a pasta do projeto
+```bash
+cd unip-mba-react-2025-2
+```
+
+# Instale as dependências
+```bash
+npm install
+# ou
+yarn install
+```
+
+# Inicie a aplicação em modo de desenvolvimento
+```bash
+npm start
+# ou
+yarn start
+```
+
  
 
