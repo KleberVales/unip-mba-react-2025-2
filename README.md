@@ -9,5 +9,9 @@
 O objetivo do projeto é servir como base de estudo/prática para conceitos modernos de React: estrutura modular, componentes, roteamento, integração com APIs, estilos, e boas práticas de organização de código.
 >
 > ## 📦 Tecnologias e dependências
+>
+> - React  
+  - JavaScript / TypeScript (caso esteja usando)  
+  - Outras bibliotecas dependentes (de acordo com o package.json) 
  
 
