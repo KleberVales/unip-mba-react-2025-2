@@ -46,5 +46,14 @@ yarn start
 
 ## ⚙️ Estrutura sugerida de pastas (exemplo)
 
+```graphql
+src/
+├── components/       # componentes reutilizáveis
+├── pages/            # páginas / rotas
+├── services/         # chamadas a APIs / lógica de negócio
+├── assets/           # imagens, estilos, etc
+└── App.js / index.js # ponto de entrada da aplicação
+```
+
  
 
