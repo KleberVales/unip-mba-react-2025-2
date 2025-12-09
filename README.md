@@ -12,6 +12,10 @@
 
 - React  
 - JavaScript / TypeScript (caso esteja usando)  
-- Outras bibliotecas dependentes (de acordo com o package.json) 
+- Outras bibliotecas dependentes (de acordo com o package.json)
+
+> ⚠️ **Pré-requisitos**:  
+> - Node.js (versão compatível)  
+> - npm ou yarn  
  
 
