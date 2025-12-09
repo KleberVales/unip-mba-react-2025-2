@@ -55,5 +55,7 @@ src/
 └── App.js / index.js # ponto de entrada da aplicação
 ```
 
+## 🖼️ Preview da Aplicação
+
  
 
