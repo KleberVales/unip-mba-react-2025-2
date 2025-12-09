@@ -57,5 +57,6 @@ src/
 
 ## 🖼️ Preview da Aplicação
 
- 
+ <img width="1217" height="862" alt="Captura de tela 2025-12-09 110740" src="https://github.com/user-attachments/assets/8583e10a-05e4-4ca2-a28b-223c3f12718a" />
+
 
