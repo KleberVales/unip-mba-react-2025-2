@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1daae79b-407b-4d13-ad4f-c702a395b178" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/agenda-react.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agenda-react.html" beforeDir="false" afterPath="$PROJECT_DIR$/agenda-react.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +69,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JavaScript Debug.spread.html">
+  <component name="RunManager" selected="JavaScript Debug.className.html">
     <configuration name="className.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/unip-mba-react-2025-2/className.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -114,6 +114,10 @@
       <workItem from="1763593993451" duration="7781000" />
       <workItem from="1764187686943" duration="7999000" />
       <workItem from="1764598320340" duration="31000" />
+      <workItem from="1764801130504" duration="8210000" />
+      <workItem from="1764866392896" duration="83000" />
+      <workItem from="1765289156383" duration="302000" />
+      <workItem from="1766094589636" duration="103000" />
     </task>
     <servers />
   </component>
