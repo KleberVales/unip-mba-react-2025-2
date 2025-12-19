@@ -6,82 +6,82 @@
     <title>Document</title>
 </head>
 <body>
-<div id="root"></div>
-<script src = "https://unpkg.com/react@18/umd/react.development.js"></script>
-<script src = "https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
-<script type="text/babel">
+    <div id="root"></div>
+    <script src = "https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src = "https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+    <script type="text/babel">
 
-
+     
     const BotaoSemParametros = () => (
         <div style={{padding: "16px"}}>
-            <button onClick={() => alert("Clique sem parâmetros")}>
-                Clique sem parâmetros
-            </button>
-            <button onClick={() => console.log("Outra função sem parâmetros")}>
-                Clique sem parâmetros
-            </button>
+         <button onClick={() => alert("Clique sem parâmetros")}> 
+          Clique sem parâmetros 
+        </button>
+        <button onClick={() => console.log("Outra função sem parâmetros")}> 
+          Clique sem parâmetros 
+        </button>
         </div>
     )
 
 
-    const BotaoComParametros = () => (
+      const BotaoComParametros = () => (
         <div style={{padding: "16px"}}>
 
-            <button onClick={() => alert("Mensagem passada por parâmetros")}>
-                Clique com parâmetros
-            </button>
+         <button onClick={() => alert("Mensagem passada por parâmetros")}> 
+          Clique com parâmetros 
+        </button>
 
             <input
-                type="text"
-                placeholder="Ex: 20,30"
-                id="valores"
-            />
+             type="text"
+             placeholder="Ex: 20,30"
+             id="valores"
+             />
 
-            <button
+             <button 
                 onClick={() => {
-                    const valores = document.getElementById("valores").value;
-                    const [a, b] = valores.split(",").map(Number);
-                    alert("Soma é =" + (a + b));
-                }}
-            >
-                Soma com input
-            </button>
+                const valores = document.getElementById("valores").value;
+                const [a, b] = valores.split(",").map(Number);
+                alert("Soma é =" + (a + b));
+             }}
+             >
+             Soma com input
+        </button>
         </div>
     )
 
-    const BotaoComEvent = () => (
+      const BotaoComEvent = () => (
         <div style={{padding: "16px"}}>
-            <button onClick={(e) => console.log("Tipo do evento", e.type)}>
-                Clique com event
-            </button>
-            <button onClick={(e) => console.log("Elemento clicado", e.target.tagName)}>
-                Clique com event target
-            </button>
+         <button onClick={(e) => console.log("Tipo do evento", e.type)}> 
+          Clique com event 
+        </button>
+        <button onClick={(e) => console.log("Elemento clicado", e.target.tagName)}> 
+          Clique com event target
+        </button>
         </div>
     )
 
 
 
-
-    function App() {
+     
+     function App() {
 
         return (
             <div style={{padding: "16px"}}>
-                <h2> Sem parâmetros </h2>
-                <BotaoSemParametros/>
-                <BotaoComParametros/>
-                <BotaoComEvent/>
+              <h2> Sem parâmetros </h2>
+              <BotaoSemParametros/>
+              <BotaoComParametros/>
+              <BotaoComEvent/>
 
 
             </div>
-
+            
         );
-    }
-    ReactDOM.createRoot(document.getElementById('root')).render(
-        <App />
+        }
+   ReactDOM.createRoot(document.getElementById('root')).render(
+    <App />
     );
-</script>
-
+    </script>
+    
 </body>
 </html>
